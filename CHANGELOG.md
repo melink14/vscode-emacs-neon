@@ -1,3 +1,6 @@
+## 0.8.6 (2018-12-02)
+- Add `S-<left>` and `S-<right>` for switching between editor groups.
+
 ## 0.8.5 (2018-12-02)
 - Exit mark-mode when deleting text with backspace or delete.
 - Enable M-g M-g (not just M-g g) for go to line feature.

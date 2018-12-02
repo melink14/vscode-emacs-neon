@@ -3,7 +3,7 @@
     "displayName": "Emacs Friendly Keybindings",
     "description": "Emacs keybindings and selection system, including exiting mark mode when erasing text.",
     "icon": "emacs_neon.png",
-    "version": "0.8.5",
+    "version": "0.8.6",
     "publisher": "notkyon",
     "homepage": "https://github.com/NotKyon/vscode-emacs-neon",
     "repository": {
@@ -627,11 +627,11 @@
             },
             {
                 "key": "shift+left",
-                "command": "workbench.focusLeftEditor"
+                "command": "workbench.action.focusPreviousGroup"
             },
             {
                 "key": "shift+right",
-                "command": "workbench.focusRightEditor"
+                "command": "workbench.action.focusNextGroup"
             }
         ]
     },
