@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import {Operation} from './operation';
+import { Operation } from './operation';
 
 var inMarkMode: boolean = false;
 var markHasMoved: boolean = false;
@@ -10,7 +10,8 @@ export function activate(context: vscode.ExtensionContext): void {
 
             // Edit
             "C-k", "C-w", "M-w", "C-y", "C-x_C-o",
-            "C-x_u", "C-/", "C-j", "C-S_bs",
+            "C-x_u", "C-/", "M-/", "C-j", "C-S_bs",
+            "deleteLeft", "deleteRight",
 
             // Navigation
             "C-l",
@@ -29,14 +30,14 @@ export function activate(context: vscode.ExtensionContext): void {
 
     cursorMoves.forEach(element => {
         context.subscriptions.push(vscode.commands.registerCommand(
-            "emacs."+element, () => {
+            "emacs." + element, () => {
                 if (inMarkMode) {
-                    markHasMoved  = true;
+                    markHasMoved = true;
                 }
                 vscode.commands.executeCommand(
                     inMarkMode ?
-                    element+"Select" :
-                    element
+                        element + "Select" :
+                        element
                 );
             })
         )

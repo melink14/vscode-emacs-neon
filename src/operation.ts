@@ -1,4 +1,4 @@
-import {Editor} from './editor';
+import { Editor } from './editor';
 
 export class Operation {
     private editor: Editor;
@@ -30,6 +30,10 @@ export class Operation {
                 this.editor.undo();
                 this.editor.setStatusBarMessage("Undo!");
             },
+            "M-/": () => {
+                this.editor.redo();
+                this.editor.setStatusBarMessage("Redo!");
+            },
             'C-j': () => {
                 this.editor.breakLine();
             },
@@ -41,6 +45,12 @@ export class Operation {
             },
             'C-l': () => {
                 this.editor.scrollLineToCenterTopBottom()
+            },
+            'deleteLeft': () => {
+                this.editor.deleteLeft()
+            },
+            'deleteRight': () => {
+                this.editor.deleteRight()
             }
         };
     }

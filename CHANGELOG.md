@@ -1,3 +1,10 @@
+## 0.8.5 (2018-12-02)
+- Exit mark-mode when deleting text with backspace or delete.
+- Enable M-g M-g (not just M-g g) for go to line feature.
+- Add C-o for inserting a line before the current.
+- Add M-/ for redo (this isn't in emacs, but has symmetry with C-/ for undo).
+- Change C-x 2 and C-x 3 to split the editor panes vertically and horizontally, respectively, matching standard emacs behavior.
+
 ## 0.8.2 (2017-10-09)
 - Fix replaceOne shortcut to correctly only replace the currently selected match
 

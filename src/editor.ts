@@ -3,9 +3,9 @@ import * as clip from 'clipboardy'
 
 // Possible positions when C-l is invoked consequtively
 enum RecenterPosition {
-  Middle,
-  Top,
-  Bottom
+	Middle,
+	Top,
+	Bottom
 };
 
 export class Editor {
@@ -90,7 +90,7 @@ export class Editor {
 
 		// If there is something other than whitespace in the selection, we do not cut the EOL too
 		if (!isOnLastLine && !txt.match(/^\s*$/)) {
-			await vscode.commands.executeCommand("cursorMove", {to: "left", by: "character"})
+			await vscode.commands.executeCommand("cursorMove", { to: "left", by: "character" })
 			endPos = this.getCurrentPos()
 		}
 
@@ -132,6 +132,9 @@ export class Editor {
 	undo(): void {
 		vscode.commands.executeCommand("undo");
 	}
+	redo(): void {
+		vscode.commands.executeCommand("redo");
+	}
 
 	private getFirstBlankLine(range: vscode.Range): vscode.Range {
 		let doc = vscode.window.activeTextEditor.document;
@@ -168,8 +171,8 @@ export class Editor {
 		vscode.window.activeTextEditor.selection = selection;
 
 		for (let line = selection.start.line;
-				line < doc.lineCount - 1  && doc.lineAt(line).range.isEmpty;
-		    	++line) {
+			line < doc.lineCount - 1 && doc.lineAt(line).range.isEmpty;
+			++line) {
 
 			await vscode.commands.executeCommand("deleteRight")
 		}
@@ -184,7 +187,7 @@ export class Editor {
 		}
 	}
 
-	deleteLine() : void {
+	deleteLine(): void {
 		vscode.commands.executeCommand("emacs.exitMarkMode"); // emulate Emacs
 		vscode.commands.executeCommand("editor.action.deleteLines");
 	}
@@ -215,5 +218,24 @@ export class Editor {
 		vscode.commands.executeCommand("lineBreakInsert");
 		vscode.commands.executeCommand("emacs.cursorHome");
 		vscode.commands.executeCommand("emacs.cursorDown");
+	}
+
+	deleteDirection(command): void {
+		let selectionText = this.getSelectionText();
+
+		if (selectionText.length == 0) {
+			vscode.commands.executeCommand(command)
+		} else {
+			Editor.delete(this.getSelectionRange());
+		}
+
+		vscode.commands.executeCommand('emacs.exitMarkMode');
+	}
+
+	deleteLeft(): void {
+		this.deleteDirection('deleteLeft');
+	}
+	deleteRight(): void {
+		this.deleteDirection('deleteRight');
 	}
 }

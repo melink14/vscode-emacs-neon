@@ -1,10 +1,12 @@
-# vscode-emacs-friendly
+# vscode-emacs-neon
 
-This plugin provides emacs keybindings and workflow for Visual Studio Code and is a fork of the great vscode extension by [hiro-sun](https://github.com/hiro-sun/vscode-emacs).
+This plugin provides emacs keybindings and workflow for Visual Studio Code and is a fork of an extension by [Sebastian Zaha](https://github.com/SebastianZaha/vscode-emacs-friendly) which is a fork of the great vscode extension by [hiro-sun](https://github.com/hiro-sun/vscode-emacs).
 
-It merges some of the pull requests in the original and other external helpers that make the extension a little less an exact copy of emacs behavior, and a little more friendly in interacting with the system clipboard and normal vscode interactions.
+This fork adds some miscellaneous quality-of-life improvements, such as exiting mark-mode when erasing text, or adding a keybinding for redo, among other things.
 
-The following are some of the changes and enhancements from the original:
+The original fork merges some of the pull requests in the original and other external helpers that make the extension a little less an exact copy of emacs behavior, and a little more friendly in interacting with the system clipboard and normal vscode interactions.
+
+The following are some of the original fork's changes and enhancements from the original project:
 
 * The clipboard handling is simplified by the removal of the emacs-only kill ring (which was also an unfinished implementation in the original). Copy, Cut, Yank and C-K work with the system clipboard now.
 * C+x k to close tab, C+x C-k all tabs
@@ -28,7 +30,7 @@ The following are some of the changes and enhancements from the original:
 | `M-<` | Move to the beginning of buffer |
 | `C-v` | Scroll down by one screen unit |
 | `M-v` | Scroll up by one screen unit |
-| `M-g g` | Jump to line (command palette) |
+| `M-g g` (`M-g M-g`) | Jump to line (command palette) |
 | `M-g n` | Jump to next error |
 | `M-g p` | Jump to previous error |
 | `C-l` |  Center screen on current line |
@@ -61,6 +63,7 @@ The following are some of the changes and enhancements from the original:
 | `C-x C-o` | Delete blank lines around |
 | `C-x h` | Select All |
 | `C-x u` (`C-/`)| Undo |
+| `M-/` | Redo |
 | `C-;` | Toggle line comment in and out |
 | `M-;` | Toggle region comment in and out |
 | `C-x C-l` | Convert to lower case |
@@ -104,12 +107,8 @@ The following are some of the changes and enhancements from the original:
 - `ctrl+v`: editor.action.clipboardPasteAction => **Use `ctrl+y` instead**;
 - `ctrl+k`: editor.debug.action.showDebugHover, editor.action.trimTrailingWhitespace, editor.action.showHover, editor.action.removeCommentLine, editor.action.addCommentLine, editor.action.openDeclarationToTheSide;
 - `ctrl+k z`: workbench.action.toggleZenMode => **Use `ctrl+x z` instead**;
-- `ctrl+y`: redo;
+- `ctrl+y`: redo => **Use `alt+/` instead**;
 - `ctrl+m`: editor.action.toggleTabFocusMode;
 - `ctrl+/`: editor.action.commentLine => **Use `ctrl+;` instead**;
 - `ctrl+p` & `ctrl+e`: workbench.action.quickOpen => **Use `ctrl+x b` instead**;
 - `ctrl+p`: workbench.action.quickOpenNavigateNext => **Use `ctrl+n` instead**.
-
-# More information
-
-The logo is from the great [Pacifica Icon Set](http://bokehlicia.deviantart.com/art/Pacifica-Icons-402508559).

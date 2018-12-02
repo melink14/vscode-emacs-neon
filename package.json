@@ -1,16 +1,16 @@
 {
-    "name": "vscode-emacs-friendly",
-    "displayName": "Emacs Friendly Keymap",
-    "description": "Emacs keybindings and selection, friendly interaction with the system clipboard.",
-    "icon": "emacs_pacifica.png",
-    "version": "0.8.2",
+    "name": "vscode-emacs-neon",
+    "displayName": "Emacs Friendly Keybindings",
+    "description": "Emacs keybindings and selection system, including exiting mark mode when erasing text.",
+    "icon": "emacs_neon.png",
+    "version": "0.8.5",
     "publisher": "lfs",
-    "homepage": "https://github.com/SebastianZaha/vscode-emacs-friendly",
+    "homepage": "https://github.com/NotKyon/vscode-emacs-neon",
     "repository": {
         "type": "git",
-        "url": "https://github.com/SebastianZaha/vscode-emacs-friendly"
+        "url": "https://github.com/NotKyon/vscode-emacs-neon"
     },
-    "bugs": "https://github.com/SebastianZaha/vscode-emacs-friendly/issues",
+    "bugs": "https://github.com/NotKyon/vscode-emacs-neon/issues",
     "engines": {
         "vscode": "^1.11.0"
     },
@@ -201,6 +201,10 @@
                 "command": "workbench.action.gotoLine"
             },
             {
+                "key": "alt+g alt+g",
+                "command": "workbench.action.gotoLine"
+            },
+            {
                 "key": "alt+g n",
                 "command": "editor.action.marker.next"
             },
@@ -314,6 +318,11 @@
                 "when": "editorFocus && findWidgetVisible"
             },
             {
+                "key": "ctrl+o",
+                "command": "editor.action.insertLineBefore",
+                "when": "editorTextFocus && !editorReadonly"
+            },
+            {
                 "key": "ctrl+x ctrl+o",
                 "command": "emacs.C-x_C-o",
                 "when": "editorTextFocus && !editorReadonly"
@@ -350,6 +359,11 @@
             {
                 "key": "ctrl+/",
                 "command": "emacs.C-/",
+                "when": "editorTextFocus && !editorReadonly"
+            },
+            {
+                "key": "alt+/",
+                "command": "emacs.M-/",
                 "when": "editorTextFocus && !editorReadonly"
             },
             {
@@ -504,11 +518,11 @@
             },
             {
                 "key": "ctrl+x 2",
-                "command": "workbench.action.splitEditor"
+                "command": "workbench.action.splitEditorOrthogonal"
             },
             {
                 "key": "ctrl+x 3",
-                "command": "workbench.action.toggleEditorGroupLayout"
+                "command": "workbench.action.splitEditorRight"
             },
             {
                 "key": "ctrl+x o",
@@ -600,6 +614,24 @@
                 "key": "alt+backspace",
                 "command": "deleteWordLeft",
                 "when": "editorTextFocus && !editorReadonly"
+            },
+            {
+                "key": "backspace",
+                "command": "emacs.deleteLeft",
+                "when": "editorTextFocus && !editorReadonly"
+            },
+            {
+                "key": "delete",
+                "command": "emacs.deleteRight",
+                "when": "editorTextFocus && !editorReadonly"
+            },
+            {
+                "key": "shift+left",
+                "command": "workbench.focusLeftEditor"
+            },
+            {
+                "key": "shift+right",
+                "command": "workbench.focusRightEditor"
             }
         ]
     },
@@ -617,6 +649,7 @@
         "vscode": "^1.1.4"
     },
     "dependencies": {
+        "@types/clipboardy": "^1.1.0",
         "clipboardy": "^1.1.4"
     }
 }
