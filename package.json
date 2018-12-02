@@ -4,7 +4,7 @@
     "description": "Emacs keybindings and selection system, including exiting mark mode when erasing text.",
     "icon": "emacs_neon.png",
     "version": "0.8.5",
-    "publisher": "lfs",
+    "publisher": "notkyon",
     "homepage": "https://github.com/NotKyon/vscode-emacs-neon",
     "repository": {
         "type": "git",
