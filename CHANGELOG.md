@@ -1,3 +1,7 @@
+## 0.9.0 (2019-04-13)
+- Add `C-x 0` keybinding.
+- Add multi-cursor mark-mode.
+
 ## 0.8.6 (2018-12-02)
 - Add `S-<left>` and `S-<right>` for switching between editor groups.
 
