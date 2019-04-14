@@ -3,7 +3,7 @@
     "displayName": "Emacs Friendly Keybindings",
     "description": "Emacs keybindings and selection system, including exiting mark mode when erasing text.",
     "icon": "emacs_neon.png",
-    "version": "0.8.6",
+    "version": "0.9.0",
     "publisher": "notkyon",
     "homepage": "https://github.com/NotKyon/vscode-emacs-neon",
     "repository": {
