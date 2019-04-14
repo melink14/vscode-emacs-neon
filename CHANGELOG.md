@@ -1,4 +1,4 @@
-## 0.9.0 (2019-04-13)
+## 0.9.1 (2019-04-13)
 - Add `C-x 0` keybinding.
 - Add multi-cursor mark-mode.
 
