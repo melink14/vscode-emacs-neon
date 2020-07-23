@@ -105,12 +105,12 @@ export class Editor {
 		return promise
 	}
 
-	async copy(): void {
+	async copy(): Promise<void> {
 		await vscode.env.clipboard.writeText(this.getSelectionText())
 		vscode.commands.executeCommand("emacs.exitMarkMode")
 	}
 
-	async cut(appendClipboard?: boolean): Thenable<boolean> {
+	async cut(appendClipboard?: boolean): Promise<boolean> {
 		if (appendClipboard) {
 			await vscode.env.clipboard.writeText((await vscode.env.clipboard.readText()) + this.getSelectionText());
 		} else {
